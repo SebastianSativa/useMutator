@@ -1,6 +1,6 @@
 # 🧬 useMutator 🧬
 So you want to _reduce_ time spent writing reducer code, eh?
-Say hello to your friendely neighbourhood useReducer wrapper - useMutator 🦸 - that lets you do just that and more:
+Say hello to your friendly neighbourhood useReducer wrapper - useMutator 🦸 - that lets you do just that and more:
 
 - Lends itself to auto-completion 🤖 
 - Automatically merges your state changes, but can just as easily overwrite the existing state, with the flip of a switch 💡
