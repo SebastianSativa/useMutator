@@ -9,7 +9,7 @@ Say hello to your friendly neighbourhood useReducer wrapper - useMutator 🦸 - 
 
 Now you too, can reduce with minimal boilerplate and with minimal dependencies - thanks to just a few extra lines of code ⚡🎉
 
-Simply ```yarn add useMutator``` or ```npm i useMutator``` to get started 😎
+Simply ```yarn add usemutator``` or ```npm i usemutator``` to get started 😎
 
 ## Easy as 3, 2, 1! 🏎️💨 ###
 
