@@ -2,7 +2,8 @@ const useReducer = require('react').useReducer
 
 const useMutator = (initialState) => {
     const [ state, dispatch ] = useReducer((state, mutator) => {
-        return mutator.replace ? mutator.mutation : { ...state, ...mutator.mutation }
+		const mutation = typeof mutator.mutation === 'function' ? mutator.mutation(state) : mutator.mutation
+        return mutator.replace ? mutation : { ...state, ...mutation }
     }, initialState)
     return {
         state,
