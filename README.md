@@ -14,7 +14,7 @@ Simply ```yarn add usemutator``` or ```npm i usemutator``` to get started 😎
 ## Easy as 3, 2, 1! 🏎️💨 ###
 
 ```
-import useMutator from 'useMutator'
+import useMutator from 'usemutator'
 ...
 const MyShinyForm = () => {
     const { state, mutate } = useMutator(MyShinyForm.initialState)
@@ -30,12 +30,14 @@ MyShinyForm.initialState = {}
 
 ## How it works
 First you run the useMutator hook with an initial state, which gives you an object with __state__ and __mutate__. Unless you've been living under a rock you already know __state__, but __mutate__ is the magic sauce:
+
 `mutate(mutation: Object|function(any) => Object, replace=false)`
+
 __mutate__ is by itself just a function, which takes two arguments: first argument is either an object or a function that returns an object. This is the __mutation__ to apply. The second argument is __replace__ - this is simply a boolean which by default is off. If you manually switch it to true, you force mutate to swap out the current state with your mutation.
 
 ## Advanced usage 🧠✨ ##
 ```
-import useMutator from 'useMutator'
+import useMutator from 'usemutator'
 
 const MyTodo = ({ children, done, ...props }) => <li {...props} style={{ textDecoration: done ? 'line-through' : null }}>{children}</li>
 
@@ -47,13 +49,11 @@ const Todos = () => {
             <h1>ToDo:</h1>
             <ul>
                 {state.todos.map((todo, index) => (
-                    <>
-                        <MyTodo key={index} done={todo.done}>
-                            <input type="checkbox" checked={todo.done} onChange={() => mutate((state) => Todos.mutators.TOGGLE_TODO_DONE(state, index))} />&nbsp;
-                            {todo.todoText}&nbsp;
-                            <button type="button" onClick={() => mutate((state) => Todos.mutators.REMOVE_TODO(state, index))}>Remove</button>
-                        </MyTodo>
-                    </>
+                    <MyTodo key={index} done={todo.done}>
+                        <input type="checkbox" checked={todo.done} onChange={() => mutate((state) => Todos.mutators.TOGGLE_TODO_DONE(state, index))} />&nbsp;
+                        {todo.todoText}&nbsp;
+                        <button type="button" onClick={() => mutate((state) => Todos.mutators.REMOVE_TODO(state, index))}>Remove</button>
+                    </MyTodo>
                 ))}
             </ul>
             <form onSubmit={(e) => {e.preventDefault(); mutate((state) => Todos.mutators.ADD_TODO(state, state.new_todo_text))}}>
